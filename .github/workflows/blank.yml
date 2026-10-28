@@ -1,5 +1,6 @@
----
+
 name: CI
+
 on:
   push:
     branches:
@@ -7,17 +8,39 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch: null
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Run a one-line script
-        run: echo Hello, world!
-      - name: display date
+        run: echo "Hello, world!"
+
+      - name: Display date
         run: date
+
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Hello, world sruthiiiiiiiiiiii!"
+
+      - name: Display date
+        run: date
+
+      - name: Run a multi-line script
+        run: |
+          echo "This is the second job."
+          echo "Build, test, and deploy your project."
