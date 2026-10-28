@@ -18,15 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo "Hello, world!"
-
-      - name: Display date
-        run: date
-
-      - name: Run a multi-line script
-        run: |
-          echo "Add other actions to build,"
-          echo "test, and deploy your project."
+        run: echo "completed"
 
   build2:
     runs-on: ubuntu-latest
@@ -34,13 +26,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo "Hello, world sruthiiiiiiiiiiii!"
-
-      - name: Display date
+      - name: Display current date and time
         run: date
 
-      - name: Run a multi-line script
-        run: |
-          echo "This is the second job."
-          echo "Build, test, and deploy your project."
+  build3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display current working directory
+        run: pwd
+
+  build4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List all files and directories
+        run: ls -la
+
+  build5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List all files and directories recursively
+        run: ls -laR
