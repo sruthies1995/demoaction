@@ -1,57 +1,30 @@
 
-name: CI
+name: Sequential Pipeline
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
-  build1:
+  build:
+    name: Build Application
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Build
+        run: echo "Building application"
 
-      - name: Run a one-line script
-        run: echo "uncompleted"
-
-  build2:
+  test:
+    name: Test Application
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Run Tests
+        run: echo "Running tests"
 
-      - name: Display current date and time
-        run: date
-
-  build3:
+  deploy:
+    name: Deploy Application
     runs-on: ubuntu-latest
+    needs: test
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Deploy
+        run: echo "Deploying application"
 
-      - name: Display current working directory
-        run: pwd
-
-  build4:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: List all files and directories
-        run: ls -la
-
-  build5:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: List all files and directories recursively
-        run: ls -laR
