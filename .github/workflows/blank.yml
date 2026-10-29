@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo "completed"
+        run: echo "uncompleted"
 
   build2:
     runs-on: ubuntu-latest
